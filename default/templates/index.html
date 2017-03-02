@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>App Engine Microservices Demo</title>
+</head>
+<body>
+
+
+<h3>Services</h3>
+<ul>
+  {% for service, endpoints in service_urls.iteritems() %}
+    <li>{{ service|capitalize }} service</li>
+    <ul>
+      {% for key, url in endpoints.iteritems() %}
+        <li>{{ key|capitalize }}: <a href="{{ url }}">{{ url }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+</ul>
+
+<hr/>
+
+<h4>Dummy service response</h4>
+<p>
+  {% if not dummy_data %}
+    Could not get any data!
+  {% else %}
+    Message: {{ dummy_data.message }}
+  {% endif %}
+</p>
+
+<hr/>
+
+<h4>Movie service response</h4>
+<p>
+  {% if not movies %}
+    Could not get any data!
+  {% else %}
+    <ul>
+      {% for movie in movies %}
+        <li><a href="{{ movie.imdb_id }}">{{ movie.title }} ({{ movie.year }})</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</p>
+
+<hr/>
+
+<h4>User service response</h4>
+<p>
+  {% if not users %}
+    Could not get any data!
+  {% else %}
+    <ul>
+      {% for username, user_data in users.iteritems() %}
+        <li>{{ username }}</li>
+        <ul>
+          {% for key, value in user_data.iteritems() %}
+            <li>{{ key }}: {{ value }}</li>
+          {% endfor %}
+        </ul>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</p>
+
+</body>
+</html>

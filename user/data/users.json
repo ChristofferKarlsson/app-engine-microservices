@@ -1,0 +1,12 @@
+{
+  "christoffer": {
+    "id": 1234,
+    "name": "Christoffer Karlsson",
+    "email": "christoffer.karlsson@my-random-domain.no"
+  },
+  "test": {
+    "id": 1,
+    "name": "Test user",
+    "email": "test@test.com"
+  }
+}

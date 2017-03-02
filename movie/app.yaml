@@ -1,0 +1,9 @@
+runtime: python27
+api_version: 1
+threadsafe: yes
+service: movie
+
+
+handlers:
+- url: .*
+  script: main.app
